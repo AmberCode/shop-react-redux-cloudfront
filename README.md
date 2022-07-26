@@ -1,3 +1,10 @@
+##  Rolling Scopes Application
+### Task 2 (Serve SPA in AWS S3 and Cloudfront Services)
+
+[S3](http://andriusu-rs-school-app.s3-website-us-east-1.amazonaws.com)  
+[CloudFront](https://d2cvlb8s8ekb12.cloudfront.net)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
