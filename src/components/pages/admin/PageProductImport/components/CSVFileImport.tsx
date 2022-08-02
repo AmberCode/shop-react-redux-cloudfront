@@ -46,8 +46,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
       })
       console.log('Result: ', result)
       setFile('');
-    }
-  ;
+  };
 
   return (
     <div className={classes.content}>
