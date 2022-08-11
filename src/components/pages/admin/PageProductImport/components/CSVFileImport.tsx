@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
@@ -30,12 +30,17 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
+      const authorization_token = localStorage.getItem('authorization_token') || '';
+      
       // Get the presigned URL
       const response = await axios({
         method: 'GET',
         url,
         params: {
           name: encodeURIComponent(file.name)
+        },
+        headers: {
+          Authorization: 'Basic ' + authorization_token
         }
       })
       console.log('File to upload: ', file.name)
@@ -47,6 +52,11 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
       console.log('Result: ', result)
       setFile('');
   };
+
+  // mock login data
+  useEffect(() => {
+    localStorage.setItem('authorization_token','YW1iZXJjb2RlOlRFU1RfUEFTU1dPUkQ=');
+  },[]);
 
   return (
     <div className={classes.content}>
